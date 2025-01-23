@@ -1,5 +1,5 @@
 {% set name = "VulkanSceneGraph" %}
-{% set version = "1.1.8" %}
+{% set version = "1.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/VulkanSceneGraph/archive/v{{ version }}.tar.gz
-    sha256: 94a3cebdfddf4759d17bbf0cc9f3278851eb899bdc660eb4681960e4cdd2ad6a
+    sha256: 6219e0918cbfccab088b0aba9c582c46d41dbfc01cf8be7714655880ee289206
     patches:
       - patches/ignore-vulkan-version.patch
 
