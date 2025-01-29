@@ -12,7 +12,7 @@ source:
       - patches/ignore-vulkan-version.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('vulkanscenegraph', max_pin='x.x') }}
 
@@ -45,6 +45,8 @@ test:
     - if not exist %PREFIX%\\Library\\bin\\vsg-14.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake exit 1  # [win]
   downstreams:
+    - osg2vsg
+    - vsgqt
     - vsgxchange
 
 about:
