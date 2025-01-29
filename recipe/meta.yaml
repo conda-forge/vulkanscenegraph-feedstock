@@ -45,6 +45,8 @@ test:
     - if not exist %PREFIX%\\Library\\bin\\vsg-14.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake exit 1  # [win]
   downstreams:
+    - osg2vsg
+    - vsgqt
     - vsgxchange
 
 about:
