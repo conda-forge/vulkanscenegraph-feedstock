@@ -1,0 +1,48 @@
+diff -urN a/include/vsg/core/Array2D.h b/include/vsg/core/Array2D.h
+--- a/include/vsg/core/Array2D.h	2025-11-28 02:32:18.000000000 -0800
++++ b/include/vsg/core/Array2D.h	2025-11-28 10:14:39.308610914 -0800
+@@ -30,7 +30,7 @@
+ {
+ 
+     template<typename T>
+-    class VSG_DECLSPEC Array2D : public Data
++    class Array2D : public Data
+     {
+     public:
+         using value_type = T;
+diff -urN a/include/vsg/core/Array3D.h b/include/vsg/core/Array3D.h
+--- a/include/vsg/core/Array3D.h	2025-11-28 02:32:18.000000000 -0800
++++ b/include/vsg/core/Array3D.h	2025-11-28 10:14:39.310247403 -0800
+@@ -30,7 +30,7 @@
+ namespace vsg
+ {
+     template<typename T>
+-    class VSG_DECLSPEC Array3D : public Data
++    class Array3D : public Data
+     {
+     public:
+         using value_type = T;
+diff -urN a/include/vsg/core/Array.h b/include/vsg/core/Array.h
+--- a/include/vsg/core/Array.h	2025-11-28 02:32:18.000000000 -0800
++++ b/include/vsg/core/Array.h	2025-11-28 10:14:39.307061344 -0800
+@@ -32,7 +32,7 @@
+ namespace vsg
+ {
+     template<typename T>
+-    class VSG_DECLSPEC Array : public Data
++    class Array : public Data
+     {
+     public:
+         using value_type = T;
+diff -urN a/include/vsg/core/Value.h b/include/vsg/core/Value.h
+--- a/include/vsg/core/Value.h	2025-11-28 02:32:18.000000000 -0800
++++ b/include/vsg/core/Value.h	2025-11-28 10:14:39.311706471 -0800
+@@ -36,7 +36,7 @@
+ namespace vsg
+ {
+     template<typename T>
+-    class VSG_DECLSPEC Value : public Data
++    class Value : public Data
+     {
+     public:
+         using value_type = T;
