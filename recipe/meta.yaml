@@ -1,5 +1,5 @@
 {% set name = "VulkanSceneGraph" %}
-{% set version = "1.1.11" %}
+{% set version = "1.1.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/VulkanSceneGraph/archive/v{{ version }}.tar.gz
-    sha256: 11d2ecaea0f10c717ea90fdd494a4e899d59b847b68dc1a47d1370de89f095e5
+    sha256: bd9c58f615d44a4de684fc0c97acc010a548a6714a64c98c59ee2b86f3e66e3d
     patches:
       - patches/ignore-vulkan-version.patch
 
@@ -43,7 +43,7 @@ test:
     - test -f $PREFIX/lib/cmake/vsg/vsgConfig.cmake  # [not win]
     - if not exist %PREFIX%\\Library\\include\\vsg\\all.h exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\vsg.lib exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\bin\\vsg-14.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\vsg-*.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake exit 1  # [win]
   downstreams:
     - osg2vsg
