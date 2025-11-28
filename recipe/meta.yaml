@@ -43,7 +43,7 @@ test:
     - test -f $PREFIX/lib/cmake/vsg/vsgConfig.cmake  # [not win]
     - if not exist %PREFIX%\\Library\\include\\vsg\\all.h exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\vsg.lib exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\bin\\vsg-15.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\vsg-*.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake exit 1  # [win]
   downstreams:
     - osg2vsg
