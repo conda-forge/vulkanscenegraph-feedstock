@@ -10,9 +10,10 @@ source:
     sha256: bd9c58f615d44a4de684fc0c97acc010a548a6714a64c98c59ee2b86f3e66e3d
     patches:
       - patches/ignore-vulkan-version.patch
+      - patches/remove-vsg-declspec-from-templates.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('vulkanscenegraph', max_pin='x.x') }}
 
