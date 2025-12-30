@@ -1,5 +1,5 @@
 {% set name = "VulkanSceneGraph" %}
-{% set version = "1.1.12" %}
+{% set version = "1.1.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,12 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/VulkanSceneGraph/archive/v{{ version }}.tar.gz
-    sha256: bd9c58f615d44a4de684fc0c97acc010a548a6714a64c98c59ee2b86f3e66e3d
+    sha256: 653af399405e8a024d3254f9d8862aaaea0ac71ce832a0c09ef5e57d3def2ef3
     patches:
       - patches/ignore-vulkan-version.patch
-      - patches/remove-vsg-declspec-from-templates.patch
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('vulkanscenegraph', max_pin='x.x') }}
 
