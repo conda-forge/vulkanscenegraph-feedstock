@@ -10,7 +10,6 @@ source:
     sha256: 653af399405e8a024d3254f9d8862aaaea0ac71ce832a0c09ef5e57d3def2ef3
     patches:
       - patches/ignore-vulkan-version.patch
-      - patches/remove-vsg-declspec-from-templates.patch
 
 build:
   number: 0
