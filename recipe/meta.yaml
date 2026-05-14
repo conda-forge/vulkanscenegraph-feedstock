@@ -45,6 +45,14 @@ test:
     - if not exist %PREFIX%\\Library\\lib\\vsg.lib exit 1  # [win]
     - if not exist %PREFIX%\\Library\\bin\\vsg-*.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake exit 1  # [win]
+  requires:
+    - {{ compiler("c") }}
+    - {{ compiler("cxx") }}
+    - cmake
+    - ninja  # [not win]
+    - pkgconfig  # [linux]
+  files:
+    - tests/
   downstreams:
     - osg2vsg
     - vsgqt
