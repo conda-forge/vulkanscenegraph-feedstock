@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(vsg_consumer)
+project(vsg_consumer LANGUAGES CXX)
 
 include(CTest)
 
