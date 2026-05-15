@@ -1,0 +1,97 @@
+context:
+  name: vulkanscenegraph
+  version: "1.1.15"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/vsg-dev/VulkanSceneGraph/archive/v${{ version }}.tar.gz
+  sha256: a272709905b688eb306f84931479e29e173d35a394744f656d0fba366a811ced
+  patches:
+    - patches/ignore-vulkan-version.patch
+
+build:
+  number: 1
+  script:
+    - if: win
+      then: call "%RECIPE_DIR%\\build.bat"
+    - if: unix
+      then: bash "${RECIPE_DIR}/build.sh"
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - if: not win
+      then: ninja
+    - if: linux
+      then: pkgconfig
+  host:
+    - glslang
+    - libvulkan-headers
+    - libvulkan-loader
+    - if: linux
+      then: libxcb
+    - if: linux
+      then: xorg-xproto
+  run:
+    - libvulkan-headers
+    - libvulkan-loader
+    - if: linux
+      then: libxcb
+    - spirv-tools
+    - if: linux
+      then: xorg-xproto
+  run_exports:
+    - ${{ pin_subpackage('vulkanscenegraph', upper_bound='x.x') }}
+
+tests:
+  - requirements:
+      run:
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: not win
+          then: ninja
+        - if: linux
+          then: pkgconfig
+    files:
+      recipe:
+        - run_test.bat
+        - run_test.sh
+        - tests/
+    script:
+      - if: unix
+        then:
+          - test -f "${PREFIX}/include/vsg/all.h"
+          - test -f "${PREFIX}/lib/libvsg${SHLIB_EXT}"
+          - test -f "${PREFIX}/lib/cmake/vsg/vsgConfig.cmake"
+          - bash run_test.sh
+      - if: win
+        then:
+          - if not exist "%PREFIX%\\Library\\include\\vsg\\all.h" exit 1
+          - if not exist "%PREFIX%\\Library\\lib\\vsg.lib" exit 1
+          - if not exist "%PREFIX%\\Library\\bin\\vsg-*.dll" exit 1
+          - if not exist "%PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake" exit 1
+          - call run_test.bat
+  - downstream: osg2vsg
+  - downstream: vsgqt
+  - downstream: vsgxchange
+
+about:
+  homepage: https://vsg-dev.github.io/vsg-dev.io/
+  repository: https://github.com/vsg-dev/VulkanSceneGraph
+  summary: Vulkan & C++17 based Scene Graph Project
+  description: |
+    VulkanSceneGraph (VSG), is a modern, cross platform, high performance scene
+    graph library built upon Vulkan graphics/compute API. The software is
+    written in C++17, and follows the CppCoreGuidelines and FOSS Best Practices.
+  license: MIT
+  license_file: LICENSE.md
+
+extra:
+  recipe-maintainers:
+    - jeongseok-meta

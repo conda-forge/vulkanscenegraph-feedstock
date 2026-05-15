@@ -15,7 +15,6 @@ VulkanSceneGraph (VSG), is a modern, cross platform, high performance scene
 graph library built upon Vulkan graphics/compute API. The software is
 written in C++17, and follows the CppCoreGuidelines and FOSS Best Practices.
 
-
 Current build status
 ====================
 
