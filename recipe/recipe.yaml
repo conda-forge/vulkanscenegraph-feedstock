@@ -77,6 +77,9 @@ tests:
           - if not exist "%PREFIX%\\Library\\bin\\vsg-*.dll" exit 1
           - if not exist "%PREFIX%\\Library\\lib\\cmake\\vsg\\vsgConfig.cmake" exit 1
           - call run_test.bat
+  - downstream: osg2vsg
+  - downstream: vsgqt
+  - downstream: vsgxchange
 
 about:
   homepage: https://vsg-dev.github.io/vsg-dev.io/
