@@ -46,7 +46,9 @@ requirements:
     - if: linux
       then: xorg-xproto
   run_exports:
-    - ${{ pin_subpackage('vulkanscenegraph', upper_bound='x.x') }}
+    # VSG bumps its SOVERSION in most patch releases (1.1.15: 17, 1.1.17: 18),
+    # so dependents must be pinned to the patch version they were built with.
+    - ${{ pin_subpackage('vulkanscenegraph', upper_bound='x.x.x') }}
 
 tests:
   - requirements:
