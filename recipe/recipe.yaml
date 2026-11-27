@@ -1,6 +1,6 @@
 context:
   name: vulkanscenegraph
-  version: "1.1.16"
+  version: "1.1.18"
 
 package:
   name: ${{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/vsg-dev/VulkanSceneGraph/archive/v${{ version }}.tar.gz
-  sha256: f8066e31668f457592fed6fdee610553d46287e5f7a2694ef1ee48ab73d353cc
+  sha256: 6d815135f64a1d8fc881ecbff7d9ef6cec85d1d82ce8ec7dd1644ddf4a66f588
   patches:
     - patches/ignore-vulkan-version.patch
 
